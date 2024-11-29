@@ -16,3 +16,23 @@
 #include "../include/decryption.h"
 #include <string.h>
 #include <stdio.h>
+
+void xor_decrypt(const unsigned char *input, unsigned char *output, size_t length, const char *key) {
+    xor_encrypt(input, output, length, key); // XOR is symmetric
+}
+
+void bitshift_decrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key) {
+    size_t key_len = strlen(key);
+    for (size_t i = 0; i < length; i++) {
+        output[i] = (input[i] >> shift) | (input[i] << (8 - shift));
+        if (key_len > 0) {
+            output[i] ^= key[i % key_len];
+        }
+    }
+}
+
+void rsa_decrypt(const char *input_file, const char *output_file, const char *private_key_file) {
+    // Implement RSA decryption
+    printf("RSA decryption not yet implemented.\n");
+}
+
