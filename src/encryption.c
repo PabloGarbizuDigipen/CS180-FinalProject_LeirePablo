@@ -34,8 +34,8 @@ void bitshift_encrypt(const unsigned char *input, unsigned char *output, size_t 
     }
 }
 
-void rsa_encrypt(const char *input_file, const char *output_file, const char *public_key_file) {
-    // Implement RSA encryption
-    printf("RSA encryption not yet implemented.\n");
-}
+// void rsa_encrypt(const char *input_file, const char *output_file, const char *public_key_file) {
+//     // Implement RSA encryption
+//     printf("RSA encryption not yet implemented.\n");
+// }
 

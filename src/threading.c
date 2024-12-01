@@ -12,18 +12,9 @@
  */
 
 #include "../include/threading.h"
-//#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void *thread_encrypt(void *arg) {
-    ThreadData *data = (ThreadData *)arg;
-    data->encrypt_function(data->input, data->output, data->length, data->key);
-    return NULL;
-}
+void process_file_with_threads(const char *input_file, const char *output_file, const char *key, int shift, int method, bool decrypt) {
 
-void process_file_with_threads(const char *input_file, const char *output_file, const char *key, int shift,
-                               void (*encrypt_function)(const unsigned char *, unsigned char *, size_t, const char *)) {
-    // Implementation for reading file, creating threads, and writing output
-    printf("Threading functionality not yet implemented.\n");
 }

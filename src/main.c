@@ -39,37 +39,31 @@ int main() {
     scanf("%s", key);
 
     if (choice == 1) {
-        printf("Choose encryption method (1: XOR, 2: BitShift, 3: RSA): ");
+        printf("Choose encryption method (1: XOR, 2: BitShift): ");
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
-                process_file_with_threads(input_file, output_file, key, 0, xor_encrypt);
+                process_file_with_threads(input_file, output_file, key, 0, choice, 0);
                 break;
             case 2:
                 printf("Enter bit shift amount: ");
                 scanf("%d", &shift);
-                process_file_with_threads(input_file, output_file, key, shift, bitshift_encrypt);
-                break;
-            case 3:
-                rsa_encrypt(input_file, output_file, key);
+                process_file_with_threads(input_file, output_file, key, shift, choice, 0);
                 break;
         }
     } else if (choice == 2) {
-        printf("Choose decryption method (1: XOR, 2: BitShift, 3: RSA): ");
+        printf("Choose decryption method (1: XOR, 2: BitShift): ");
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
-                process_file_with_threads(input_file, output_file, key, 0, xor_decrypt);
+                process_file_with_threads(input_file, output_file, key, 0, choice, 1);
                 break;
             case 2:
                 printf("Enter bit shift amount: ");
                 scanf("%d", &shift);
-                process_file_with_threads(input_file, output_file, key, shift, bitshift_decrypt);
-                break;
-            case 3:
-                rsa_decrypt(input_file, output_file, key);
+                process_file_with_threads(input_file, output_file, key, shift, choice, 1);
                 break;
         }
     } else {

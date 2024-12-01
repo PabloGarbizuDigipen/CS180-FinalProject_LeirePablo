@@ -19,6 +19,5 @@
 
 void xor_encrypt(const unsigned char *input, unsigned char *output, size_t length, const char *key);
 void bitshift_encrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key);
-void rsa_encrypt(const char *input_file, const char *output_file, const char *public_key_file);
 
 #endif // ENCRYPTION_H

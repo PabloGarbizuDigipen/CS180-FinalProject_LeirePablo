@@ -15,9 +15,6 @@ SOURCES = $(wildcard $(SRC_DIR)/*.c)
 OBJECTS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SOURCES))
 TARGET = $(BIN_DIR)/hacker_tool.exe
 
-# Commands
-ERASE = rm -rf
-
 # Default target
 .PHONY: all clean
 all: $(TARGET)
@@ -35,13 +32,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) | $(OBJ_DIR)
 
 # Create necessary directories
 $(OBJ_DIR):
-	@mkdir -p $@
+	@if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
 
 $(BIN_DIR):
-	@mkdir -p $@
+	@if not exist $(BIN_DIR) mkdir $(BIN_DIR)
 
 # Clean up
 clean:
 	@echo "Cleaning up..."
-	$(ERASE) $(OBJ_DIR) $(BIN_DIR)
+	@if exist $(OBJ_DIR) rmdir /s /q $(OBJ_DIR)
+	@if exist $(BIN_DIR) rmdir /s /q $(BIN_DIR)
 	@echo "Clean complete."

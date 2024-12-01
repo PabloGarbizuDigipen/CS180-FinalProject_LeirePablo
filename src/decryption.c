@@ -14,6 +14,7 @@
  */
 
 #include "../include/decryption.h"
+#include "../include/encryption.h" // xor_encrypt
 #include <string.h>
 #include <stdio.h>
 
@@ -30,9 +31,3 @@ void bitshift_decrypt(const unsigned char *input, unsigned char *output, size_t 
         }
     }
 }
-
-void rsa_decrypt(const char *input_file, const char *output_file, const char *private_key_file) {
-    // Implement RSA decryption
-    printf("RSA decryption not yet implemented.\n");
-}
-
