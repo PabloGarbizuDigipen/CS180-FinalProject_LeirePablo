@@ -33,3 +33,10 @@ void bitshift_decrypt(const unsigned char *input, unsigned char *output, size_t 
         }
     }
 }
+
+void simple_decrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key)
+{
+    for (size_t i = 0; i < length; i++) {
+        output[i] = input[i] - shift; // Shift each character backward
+    }
+}

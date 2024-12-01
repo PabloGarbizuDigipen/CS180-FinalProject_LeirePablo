@@ -34,6 +34,14 @@ void bitshift_encrypt(const unsigned char *input, unsigned char *output, size_t 
     }
 }
 
+void simple_encrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key)
+{
+    for (size_t i = 0; i < length; i++)
+    {
+        output[i] = input[i] + shift; // Shift each character forward
+    }
+}
+
 // void rsa_encrypt(const char *input_file, const char *output_file, const char *public_key_file) {
 //     // Implement RSA encryption
 //     printf("RSA encryption not yet implemented.\n");

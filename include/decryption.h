@@ -19,5 +19,6 @@
 
 void xor_decrypt(const unsigned char *input, unsigned char *output, size_t length, const char *key);
 void bitshift_decrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key);
+void simple_decrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key);
 
 #endif // DECRYPTION_H

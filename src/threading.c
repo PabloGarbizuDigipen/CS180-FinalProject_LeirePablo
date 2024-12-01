@@ -23,17 +23,28 @@
 void *process_chunk(void *arg)
 {
     ThreadArgs *args = (ThreadArgs *)arg;
+
     if (args->method == 1) {
         if (args->decrypt)
             xor_decrypt(args->input, args->output, args->length, args->key);
         else
             xor_encrypt(args->input, args->output, args->length, args->key);
-    } else if (args->method == 2) {
+    }
+    else if (args->method == 2)
+    {
         if (args->decrypt)
             bitshift_decrypt(args->input, args->output, args->length, args->shift, args->key);
         else
             bitshift_encrypt(args->input, args->output, args->length, args->shift, args->key);
     }
+    else if (args->method == 3)
+    {
+        if (args->decrypt)
+            simple_decrypt(args->input, args->output, args->length, args->shift, args->key);
+        else
+            simple_encrypt(args->input, args->output, args->length, args->shift, args->key);
+    }
+
     return NULL;
 }
 

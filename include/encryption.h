@@ -19,5 +19,6 @@
 
 void xor_encrypt(const unsigned char *input, unsigned char *output, size_t length, const char *key);
 void bitshift_encrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key);
+void simple_encrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key);
 
 #endif // ENCRYPTION_H
