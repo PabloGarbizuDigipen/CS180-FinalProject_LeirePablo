@@ -17,10 +17,14 @@ TARGET = $(BIN_DIR)/hacker_tool.exe
 
 # Platform-specific commands
 ifeq ($(OS),Windows_NT)
-  MKDIR = if not exist
+  # Windows commands
+  MKDIR_OBJ = if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
+  MKDIR_BIN = if not exist $(BIN_DIR) mkdir $(BIN_DIR)
   RMDIR = rmdir /s /q
 else
-  MKDIR = mkdir -p
+  # Linux/Unix commands
+  MKDIR_OBJ = mkdir -p $(OBJ_DIR)
+  MKDIR_BIN = mkdir -p $(BIN_DIR)
   RMDIR = rm -rf
 endif
 
@@ -41,14 +45,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) | $(OBJ_DIR)
 
 # Create necessary directories
 $(OBJ_DIR):
-	$(MKDIR) $(OBJ_DIR)
+	$(MKDIR_OBJ)
 
 $(BIN_DIR):
-	$(MKDIR) $(BIN_DIR)
+	$(MKDIR_BIN)
 
 # Clean up
 clean:
 	@echo "Cleaning up..."
-	$(RMDIR) $(OBJ_DIR)
-	$(RMDIR) $(BIN_DIR)
+	@if exist $(OBJ_DIR) $(RMDIR) $(OBJ_DIR)
+	@if exist $(BIN_DIR) $(RMDIR) $(BIN_DIR)
 	@echo "Clean complete."
