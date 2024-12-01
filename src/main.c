@@ -43,7 +43,8 @@ int main() {
 
     if (choice == 1) { // Encrypt
         printf("Choose encryption method:\n");
-        printf("1: XOR\n2: BitShift\n3: Simple Shift\n4: Base64\n5: Vigenere\n6: Substitution\n7: Caesar\n");
+        printf("1: XOR\n2: BitShift\n3: Simple Shift\n\n");
+        printf("SELECT METHOD: ");
         scanf("%d", &method);
 
         switch (method) {
@@ -69,7 +70,8 @@ int main() {
         }
     } else if (choice == 2) { // Decrypt
         printf("Choose decryption method:\n");
-        printf("1: XOR\n2: BitShift\n3: Simple Shift\n4: Base64\n5: Vigenere\n6: Substitution\n7: Caesar\n");
+        printf("1: XOR\n2: BitShift\n3: Simple Shift\n\n");
+        printf("SELECT METHOD: ");
         scanf("%d", &method);
 
         switch (method) {
