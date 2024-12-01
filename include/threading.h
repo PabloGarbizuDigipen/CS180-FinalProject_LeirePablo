@@ -19,6 +19,16 @@
 #include <stddef.h>
 #include <stdbool.h>
 
+typedef struct {
+    const unsigned char *input;
+    unsigned char *output;
+    size_t length;
+    const char *key;
+    int shift;
+    int method;
+    bool decrypt;
+} ThreadArgs;
+
 void process_file_with_threads(const char *input_file, const char *output_file, const char *key, int shift, int method, bool decrypt);
 
 #endif // THREADING_H

@@ -18,11 +18,13 @@
 #include <string.h>
 #include <stdio.h>
 
-void xor_decrypt(const unsigned char *input, unsigned char *output, size_t length, const char *key) {
+void xor_decrypt(const unsigned char *input, unsigned char *output, size_t length, const char *key)
+{
     xor_encrypt(input, output, length, key); // XOR is symmetric
 }
 
-void bitshift_decrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key) {
+void bitshift_decrypt(const unsigned char *input, unsigned char *output, size_t length, int shift, const char *key)
+{
     size_t key_len = strlen(key);
     for (size_t i = 0; i < length; i++) {
         output[i] = (input[i] >> shift) | (input[i] << (8 - shift));

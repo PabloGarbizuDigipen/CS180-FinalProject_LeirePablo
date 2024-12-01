@@ -20,7 +20,7 @@
 void show_menu() {
     printf("Choose an option:\n");
     printf("1. Encrypt\n");
-    printf("2. Decrypt\n");
+    printf("2. Decrypt\n\n");
 }
 
 int main() {
@@ -29,7 +29,15 @@ int main() {
     int shift;
 
     show_menu();
-    scanf("%d", &choice);
+
+    while(choice < 1 || choice > 2)
+    {
+        printf("Enter the desired method: ");
+        scanf("%d", &choice);
+
+        if(choice < 1 || choice > 2)
+        printf("Invalid choice, try again.\n");
+    }
 
     printf("Enter input file path: ");
     scanf("%s", input_file);
@@ -42,7 +50,8 @@ int main() {
         printf("Choose encryption method (1: XOR, 2: BitShift): ");
         scanf("%d", &choice);
 
-        switch (choice) {
+        switch (choice)
+        {
             case 1:
                 process_file_with_threads(input_file, output_file, key, 0, choice, 0);
                 break;
@@ -52,7 +61,8 @@ int main() {
                 process_file_with_threads(input_file, output_file, key, shift, choice, 0);
                 break;
         }
-    } else if (choice == 2) {
+    }
+    else if (choice == 2) {
         printf("Choose decryption method (1: XOR, 2: BitShift): ");
         scanf("%d", &choice);
 
